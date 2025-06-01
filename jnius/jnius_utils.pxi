@@ -337,7 +337,7 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
                 return -1
 
         if r == 'J':
-            if isinstance(arg, long):
+            if isinstance(arg, int):
                 score += 10
                 continue
             elif isinstance(arg, float):

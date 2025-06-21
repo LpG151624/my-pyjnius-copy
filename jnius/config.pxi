@@ -1,0 +1,2 @@
+DEF JNIUS_PLATFORM = "android"
+DEF JNIUS_PYTHON3 = True

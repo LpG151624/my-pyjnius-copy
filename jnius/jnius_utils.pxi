@@ -1,3 +1,5 @@
+# LLOYD_PATCH_MARKER
+
 try:
     long
 except NameError:

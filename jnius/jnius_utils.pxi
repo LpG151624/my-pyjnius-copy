@@ -323,10 +323,11 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
         try:
             long
         except NameError:
-            long = init
+            long = int
             
         if r == 'S' or r == 'I':
-            if isinstance(arg, int) and arg < 2147483648:
+            if isinstance(arg, int) or (
+                    (isinstance(arg, int) and arg < 2147483648)):
                 score += 10
                 continue
             elif isinstance(arg, float):
@@ -334,6 +335,7 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
                 continue
             else:
                 return -1
+
 
         if r == 'J':
             if isinstance(arg, int):

@@ -1,3 +1,9 @@
+try:
+    long
+except NameError:
+    long = int
+            
+
 cdef str_for_c(s):
     return s.encode('utf-8')
 
@@ -320,11 +326,6 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
             continue
 
 
-        try:
-            long
-        except NameError:
-            long = int
-            
         if r == 'S' or r == 'I':
             if isinstance(arg, int) or (
                     (isinstance(arg, int) and arg < 2147483648)):
